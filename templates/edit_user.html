@@ -1,0 +1,60 @@
+{{ define "edit_user" }}
+
+{{ template "header" }}
+
+
+<main class="px-3">
+
+    <div class="container">
+        <h1 class="mt-4">Edit User {{ .FirstName }} {{ .LastName }}</h1>
+
+        <form action="/edit_user/" method="POST" class="container mt-4">
+            <input type="hidden" name="id" value="{{.Id}}">
+            <div class="row align-items-center mb-3">
+                <label for="first_name" class="col-sm-2 col-form-label">First_Name:</label>
+                <div class="col-sm-10">
+                    <input type="text" id="first_name" name="first_name" value="{{.FirstName}}" class="form-control" required>
+                </div>
+            </div>
+            <div class="row align-items-center mb-3">
+                <label for="last_name" class="col-sm-2 col-form-label">Last_Name:</label>
+                <div class="col-sm-10">
+                    <input type="text" id="last_name" name="last_name" value="{{.LastName}}" class="form-control" required>
+                </div>
+            </div>
+            <div class="row align-items-center mb-3">
+                <label for="email" class="col-sm-2 col-form-label">Email:</label>
+                <div class="col-sm-10">
+                    <input type="text" id="email" name="email" value="{{.Email}}" class="form-control" required>
+                </div>
+            </div>
+            <div class="row align-items-center mb-3">
+                <label for="phone" class="col-sm-2 col-form-label">Phone:</label>
+                <div class="col-sm-10">
+                    <input type="number" id="phone" name="phone" step="0.01" value="{{.Phone}}" class="form-control" required>
+                </div>
+            </div>
+            <div class="row align-items-start mb-3">
+                <label for="dob" class="col-sm-2 col-form-label">DateOfBirth:</label>
+                <div class="col-sm-10">
+                    <input type="dob" id="dob" name="dob" value="{{.Dob}}" class="form-control" required>
+                </div>
+            </div>
+            <div class="row align-items-center mb-3">
+                <label for="pass" class="col-sm-2 col-form-label">Password:</label>
+                <div class="col-sm-10">
+                    <input type="pass" id="pass" name="pass" value="{{.Pass}}" class="form-control" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-10 offset-sm-1">
+                    <button type="submit" class="btn btn-success">Save Changes</button>
+                    <a href="/view_users/" class="btn btn-secondary">Cancel</a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</main>
+{{ template "footer" }}
+{{ end }}

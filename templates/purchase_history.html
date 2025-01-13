@@ -1,0 +1,40 @@
+{{ define "purchase_history" }}
+
+{{ template "header" }}
+
+
+<main class="px-3">
+
+    <div class="container">
+        <h1 class="mt-4">Purchase History</h1>
+        <table class="table table-striped mt-3">
+            <thead>
+            <tr>
+                <th>Customer_Name</th>
+                <th>Product_Name</th>
+                <th>Price</th>
+                <th>Purchase_Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{range .}}
+            <tr>
+                <td>{{.Customer}}</td>
+                <td>{{.ProductName}}</td>
+                <td>{{.Price}}</td>
+                <th>{{.PurchaseDate}}</th>
+            </tr>
+            {{else}}
+            <tr>
+                <td colspan="6">No purchases available</td>
+            </tr>
+            {{end}}
+            </tbody>
+        </table>
+    </div>
+</main>
+
+
+{{ template "footer" }}
+
+{{ end }}

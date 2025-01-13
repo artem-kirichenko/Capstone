@@ -1,0 +1,20 @@
+{{ define "delete_user" }}
+
+{{ template "header" }}
+
+
+<main class="px-3">
+
+    <div class="container">
+        <h1 class="mt-4">Delete User</h1>
+        <form action="/delete_user/" method="POST">
+            <input type="hidden" name="id" value="{{.Id}}">
+            <p>Are you sure you want to delete the user {{ .FirstName }} {{ .LastName }}?</p>
+            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+            <a href="/view_users/" class="btn btn-secondary btn-sm">Cancel</a>
+        </form>
+    </div>
+
+</main>
+{{ template "footer" }}
+{{ end }}

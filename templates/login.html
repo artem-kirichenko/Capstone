@@ -1,0 +1,35 @@
+{{ define "login" }}
+
+{{ template "header" }}
+
+
+<main class="px-3">
+    <div class="container">
+        <h1 class="mt-4">Login</h1>
+
+        <form action="/login_authorization/" method="POST" class="container mt-4">
+            <div class="row align-items-center mb-3">
+                <label for="email" class="col-sm-2 col-form-label">Email:</label>
+                <div class="col-sm-10">
+                    <input type="text" id="email" name="email" class="form-control" required>
+                </div>
+            </div>
+            <div class="row align-items-center mb-3">
+                <label for="pass" class="col-sm-2 col-form-label">Password:</label>
+                <div class="col-sm-10">
+                    <input type="text" id="pass" name="pass" class="form-control" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-10 offset-sm-1">
+                    <button type="submit" class="btn btn-success">Login</button>
+                    <a href="/signup/" class="btn btn-secondary">SignUp</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</main>
+
+{{ template "footer"}}
+
+{{ end }}

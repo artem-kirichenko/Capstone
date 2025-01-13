@@ -1,0 +1,18 @@
+{{ define "activate" }}
+
+{{ template "header" }}
+
+
+<main class="px-3">
+    {{if eq .Status 1}}
+        <h1>Your account is now active. You may now log in.</h1>
+    {{else if eq .Status 0}}
+        <h1>Your account could not be activated. Please re-check the link or contact the system administrator.</h1>
+    {{else}}
+        <h1>Unknown error</h1>
+    {{end}}
+</main>
+
+{{ template "footer" }}
+
+{{ end }}

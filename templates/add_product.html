@@ -1,0 +1,41 @@
+{{ define "add_product" }}
+
+{{ template "header" }}
+
+
+<main class="px-3">
+    <div class="container">
+        <h1 class="mt-4">Add Product</h1>
+
+        <form action="/add_product_form/" method="POST" class="container mt-4">
+            <div class="row align-items-center mb-3">
+                <label for="name" class="col-sm-2 col-form-label">Product Name:</label>
+                <div class="col-sm-10">
+                    <input type="text" id="name" name="name" class="form-control" required>
+                </div>
+            </div>
+            <div class="row align-items-center mb-3">
+                <label for="price" class="col-sm-2 col-form-label">Price:</label>
+                <div class="col-sm-10">
+                    <input type="number" id="price" name="price" step="0.01" class="form-control" required>
+                </div>
+            </div>
+            <div class="row align-items-start mb-3">
+                <label for="description" class="col-sm-2 col-form-label">Description:</label>
+                <div class="col-sm-10">
+                    <textarea id="description" name="description" rows="4" class="form-control"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-10 offset-sm-1">
+                    <button type="submit" class="btn btn-success">Add Product</button>
+                    <a href="/view_products/" class="btn btn-secondary">Cancel</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</main>
+
+{{ template "footer" }}
+
+{{ end }}

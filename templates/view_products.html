@@ -1,0 +1,50 @@
+{{ define "view_products" }}
+
+{{ template "header" }}
+
+
+<main class="px-3">
+
+    <div class="container">
+        <h1 class="mt-4">Product List</h1>
+        <table class="table table-striped mt-3">
+            <thead class="table-dark">
+            <tr>
+                <th>Delete</th>
+                <th>Edit</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{range .}}
+            <tr>
+                <td>
+                    <a href="/delete_product/{{.Id}}" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+                <td>
+                    <a href="/edit_product/{{.Id}}" class="btn btn-primary btn-sm">Edit</a>
+                </td>
+                <td>{{.Name}}</td>
+                <td>{{.Price}}</td>
+                <td>{{.Description}}</td>
+            </tr>
+            {{else}}
+            <tr>
+                <td colspan="6">No products available</td>
+            </tr>
+            {{end}}
+            </tbody>
+        </table>
+    </div>
+
+    <p class="lead">
+        <a href="/add_product/" class="btn btn-warning mt-2">Add Product</a>
+    </p>
+
+</main>
+
+
+{{ template "footer" }}
+{{ end }}

@@ -1,0 +1,28 @@
+GO
+./fileName запустить файл в этой же дирректории
+go run
+go build
+
+SQL
+insert, err := db.Query(fmt.Sprintf("INSERT INTO `articles` (`title`, `anons`, `full_text`)"+
+		"VALUES ('%s', '%s', '%s')", title, anons, full_text))
+	if err != nil {
+		panic(err)
+	}
+	defer insert.Close()
+
+getting data from mysql
+res, err := db.Query("SELECT `first_name`, `last_name` FROM `users`")
+	if err != nil {
+		panic(err)
+	}
+
+	for res.Next() {
+		var user User
+		err = res.Scan(&user.FirstName, &user.LastName)
+		if err != nil {
+			panic(err)
+		}
+
+		fmt.Println(fmt.Sprintf("First Name: %s , Last Name: %s ", user.FirstName, user.LastName))
+	}

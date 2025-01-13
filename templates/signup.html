@@ -1,0 +1,58 @@
+{{ define "signup" }}
+
+{{ template "header" }}
+
+
+<main class="px-3">
+    <div class="container">
+        <h1 class="mt-4">SignUp</h1>
+
+        <form action="/signup_submit/" method="POST" class="container mt-4">
+            <div class="row align-items-center mb-3">
+                <label for="first_name" class="col-sm-2 col-form-label">First Name:</label>
+                <div class="col-sm-10">
+                    <input type="text" id="first_name" name="first_name" class="form-control" required>
+                </div>
+            </div>
+            <div class="row align-items-center mb-3">
+                <label for="last_name" class="col-sm-2 col-form-label">Last Name:</label>
+                <div class="col-sm-10">
+                    <input type="text" id="last_name" name="last_name" class="form-control" required>
+                </div>
+            </div>
+            <div class="row align-items-center mb-3">
+                <label for="email" class="col-sm-2 col-form-label">Email:</label>
+                <div class="col-sm-10">
+                    <input type="text" id="email" name="email" class="form-control" required>
+                </div>
+            </div>
+            <div class="row align-items-center mb-3">
+                <label for="phone" class="col-sm-2 col-form-label">Phone:</label>
+                <div class="col-sm-10">
+                    <input type="text" id="phone" name="phone" class="form-control" required>
+                </div>
+            </div>
+            <div class="row align-items-center mb-3">
+                <label for="dob" class="col-sm-2 col-form-label">Date Of Birth:</label>
+                <div class="col-sm-10">
+                    <input type="text" id="dob" name="dob" class="form-control" required>
+                </div>
+            </div>
+            <div class="row align-items-center mb-3">
+                <label for="pass" class="col-sm-2 col-form-label">Password:</label>
+                <div class="col-sm-10">
+                    <input type="text" id="pass" name="pass" class="form-control" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-10 offset-sm-1">
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</main>
+
+{{ template "footer"}}
+
+{{ end }}

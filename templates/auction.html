@@ -1,0 +1,51 @@
+{{ define "auction" }}
+
+{{ template "header" }}
+
+
+<main class="px-3">
+
+    <div class="container">
+        <h1 class="mt-4">Auction</h1>
+        <form action="/auction/" method="POST">
+            <table class="table table-striped mt-3">
+                <thead class="table-dark">
+                <tr>
+                    <th>Place bid</th>
+                    <th>Price</th>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                {{range .}}
+                <form action="/place_bid/" method="POST">
+                    <input type="hidden" name="id" value="{{.Id}}">
+                    <tr>
+                        <td>
+                            <button type="submit" class="btn btn-primary">Bid</button>
+                        </td>
+                        <td>
+                            <input type="text" size = "8" name="price" placeholder="Enter price" value="{{.Price}}" pattern="^\d+(\.\d{1,2})?$" title="Enter a valid price (e.g., 10.50)" required>
+                        </td>
+                        <td>{{.Name}}</td>
+                        <td>{{.Quantity}}</td>
+                        <td>{{.Description}}</td>
+                    </tr>
+                </form>
+                {{else}}
+                <tr>
+                    <td colspan="6">No products available</td>
+                </tr>
+                {{end}}
+                </tbody>
+            </table>
+        </form>
+
+    </div>
+</main>
+
+{{ template "footer" }}
+
+{{ end }}
